@@ -1,0 +1,425 @@
+/* ======================= */
+/* BASIC SETUP */
+/* ======================= */
+
+* {
+	margin: 0;
+	padding: 0;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+html, body {
+	font-family: 'Nunito Sans', sans-serif;
+	font-size: 20px;
+	text-rendering: optimizeLegibility;
+  overflow-x: hidden; /* Fixes text overflow on small devices */
+}
+
+/* ======================= */
+/* REUSABLE COMPONENTS */
+/* ======================= */
+
+section {
+	padding: 80px 0;
+}
+
+h2, h3, h4, h5{
+	font-weight: 200;
+	text-align: center;
+}
+
+h1{
+	font-size: 300%;
+	text-transform: uppercase;
+}
+
+h2 {
+	font-size: 280%;
+	letter-spacing: 1px;
+}
+
+h2::after {
+	display: block;
+	height: 2px;
+	width: 147px;
+	margin: 25px auto 0 auto;
+	background-color: #F16B6F;
+	content: " ";
+}
+
+h3 {
+	margin: 65px 0 35px 0;
+	font-size: 185%;
+}
+
+h3::after{
+	display: block;
+	height: 2px;
+	width: 100px;
+	margin: 25px auto 0 auto;
+	background-color: #F16B6F;
+	content: " "
+}
+
+h4 {
+	margin: 15px 0;
+	font-size: 135%;
+}
+
+h4::after {
+	display: block;
+	height: 2px;
+	width: 75px;
+	margin: 15px auto 0 auto;
+	background-color: #F16B6F;
+	content: " "
+}
+
+.btn:hover, .btn:focus, .btn:active {
+	color: white;
+	background-color: #ed3c42;
+}
+
+/* ======================= */
+/* NAVBAR*/
+/* ======================= */
+
+.nav-link {
+	float: left;
+}
+
+.dropdown-toggle {
+	/* fix dropdown being offset */
+	margin-right: auto;
+	padding: 5px 0;
+}
+
+.navbar-dark .navbar-nav .nav-link{ 
+	color: white;
+	text-transform: uppercase;
+}
+
+.navbar-dark .navbar-nav .nav-link:hover,
+.navbar-dark .navbar-nav .nav-link:active {
+	color: white;
+	border-bottom: 2.5px solid #AACD6E;
+	-webkit-transition: border-bottom 0.2s;
+	transition: border-bottom 0.2s;
+}
+
+.navbar-brand img:hover,
+.navbar-brand img:active {
+	-webkit-transform: scale(1.05);
+	transform: scale(1.05);
+	transition: transform 0.2s, -webkit-transform 0.2s;
+}
+
+.transparent .navbar-brand img{
+	height: 85px;
+	width: auto;
+}
+.navbar-dark .navbar-toggler {
+	/* Remove border from bootstrap hamburger icon */
+	border: none;
+}
+.navbar-toggler:focus, .navbar-toggler:active {
+	/* Remove border from clicked bootstrap hamburger icon */
+	outline: none;
+	box-shadow: none;
+}
+.navbar-dark .navbar-toggler-icon {
+	/* Change color of bootstrap hamburger icon */
+	background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,255,255, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+}
+
+/* Sticky Navbar Styles */
+.red-navbar {
+	background-color: #f16b6f;
+}
+.sticky {
+	background-color: #f16b6f;
+	box-shadow: 0 2px 2px #efefef;
+	padding: 0;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: 9999;
+}
+
+.red-navbar .navbar-brand img,
+.sticky .navbar-brand img {
+	height: 40px;
+	width: auto;
+}
+
+/* ======================= */
+/* HEADER SECTION */
+/* ======================= */
+
+.hero-text-box{
+	position: absolute;
+	color: white;
+    width: 1140px;
+    top: 50%;
+    left: 50.5%;
+		-webkit-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+}
+
+.hero-text-box h1,
+.hero-text-box p {
+	text-shadow: 2px 4px 3px rgba(0,0,0,0.4), 2px 8px 13px rgba(0,0,0,0.1), 2px 18px 23px rgba(0,0,0,0.1);
+	font-weight: 400;
+	word-spacing: 4px;
+	letter-spacing: 1px;
+}
+
+.hero-text-box a {
+	background-color: #F16B6F;
+	z-index: 1000;
+	color: white;
+}
+
+.hero-text-box p {
+	font-style: italic;
+	font-size: 130%;
+}
+
+.slideshow { 
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  z-index: -9999;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  background-color: #000;
+}
+
+.slideshow li { 
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  color: transparent;
+  opacity: 0;
+  z-index: 0;
+  animation: imageAnimation 20s linear infinite; 
+}
+
+.slideshow li:nth-child(1) {
+
+	background-image: -webkit-gradient(linear-gradient(rgba(217, 159, 159, 0.5), rgba(217, 159, 159, 0.5)), url('img/sign.jpg'));
+	background-image: linear-gradient(rgba(217, 159, 159, 0.5), rgba(217, 159, 159, 0.5)), url('img/sign.jpg');
+}
+
+.slideshow li:nth-child(2) {
+	background-image: -webkit-gradient(linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('img/table.jpg'));
+	background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('img/table.jpg');
+	animation-delay: 5s; 
+}
+
+.slideshow li:nth-child(3) {
+	background-image: -webkit-gradient(linear-gradient(rgba(217, 159, 159, 0.4), rgba(217, 159, 159, 0.4)), url('img/storefront.jpg'));
+	background-image: linear-gradient(rgba(217, 159, 159, 0.4), rgba(217, 159, 159, 0.4)), url('img/storefront.jpg');
+	animation-delay: 10s; 
+}
+
+.slideshow li:nth-child(4) {
+	background-image: -webkit-gradient(linear-gradient(rgba(217, 159, 159, 0.4), rgba(217, 159, 159, 0.4)), url('img/outside_dining.jpg'));
+	background-image: linear-gradient(rgba(217, 159, 159, 0.4), rgba(217, 159, 159, 0.4)), url('img/outside_dining.jpg');
+	animation-delay: 15s; 
+}
+
+@keyframes imageAnimation { 
+  0% { 
+    opacity: 0; 
+    animation-timing-function: ease-in;
+  }
+  15% {
+    opacity: 1;
+    animation-timing-function: ease-out;
+  }
+  25% {
+    opacity: 1;
+  }
+  45% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+/* ======================= */
+/* ABOUT SECTION */
+/* ======================= */
+.about-section { margin-top: 89vh; }
+
+.about-section p {
+	line-height: 200%;
+	letter-spacing: 1.5px;
+}
+
+.about-section img {
+	border-radius: 50%;
+	height: 300px;
+	width: auto;
+}
+
+.about-section i {
+	font-size: 300%;
+	color: #F16B6F;
+}
+
+
+/* ======================= */
+/* GALLERY SECTION */
+/* ======================= */
+
+.gallery-section {
+	height: 100%;
+	width: 100%;
+	background-color: #fdfcfc;
+}
+
+.gallery-section img {
+	border-radius: 10px;
+	box-shadow: 2px 2px 7px #AAAAAA;
+}
+
+.gallery-section img:hover,
+.gallery-section img:active{
+	transform: scale(1.05);
+	transition: transform 0.2s, -webkit-transform 0.2s;
+}
+
+/* ======================= */
+/* CONTACT SECTION */
+/* ======================= */
+
+#map{
+	height: 400px;
+	width: 100%;
+}
+
+/* ======================= */
+/* FOOTER SECTION */
+/* ======================= */
+
+footer {
+	text-align: center;
+	color: white;
+	background-color: #3C3530;
+	height: 250px;
+	font-weight: 200;
+	font-size: 85%;
+}
+
+footer ul { list-style: none; }
+
+.social-links { 
+	margin-top: 65px;
+	padding: 0;
+ }
+
+.social-links li{ display: inline-block; }
+
+.social-links i {
+	color: #fff;
+	font-size: 25px;
+	margin: 0 10px;
+}
+
+.social-links li a:link,
+.social-links li a:visited {
+	-webkit-transition: color 0.2s;
+    transition: color 0.2s;
+}
+
+footer .row:last-child p { 
+	margin-top: 10px;
+	font-size: 85%;
+ }
+
+#facebook:hover { 
+	color:  #3b5998;
+	-webkit-transition: color 0.2s;
+    transition: color 0.2s;
+}
+#yelp:hover { 
+	color:  #d32323;
+	-webkit-transition: color 0.2s;
+    transition: color 0.2s;
+}
+#tripadvisor:hover { 
+	color:  #00af87;
+	-webkit-transition: color 0.2s;
+    transition: color 0.2s;
+}
+
+#will-wilkinson {
+	color: white;
+}
+
+/* ======================= */
+/* MENU SECTION */
+/* ======================= */
+.menu-section {
+	background-image: url('img/sicily.png');
+	background-attachment: fixed;
+	background-position: center;
+	background-size: 50%;
+	background-repeat: no-repeat;
+}
+.price {
+	float: right;
+	font-style: italic;
+}
+.menu-description-text {
+	text-align: center;
+	font-size: 85%;
+	margin-bottom: 25px;
+}
+.menu-section {
+	font-size: 85%;
+}
+.menu-item-description-text {
+	font-style: italic;
+	font-size: 80%;
+	line-height: 75%;
+}
+
+/* ======================= */
+/* ANIMATIONS */
+/* ======================= */
+
+.js--wp-1,
+.js--wp-2{
+    opacity: 0;
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+}
+
+.js--wp-2 {
+	-webkit-animation-delay: 0.5s;
+	animation-delay: 0.5s;
+}
+
+.js--wp-3 {
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+}
+
+.js--wp-1 .animated,
+.js--wp-2 .animated {
+    opacity: 1;
+}
